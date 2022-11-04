@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:36:32 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:36:34 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:56:19 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 22:00:56 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t	x;
 
-	i = 0;
-	while (dstsize && i < dstsize - 1 && src[i])
+	x = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	while (((char *)src)[x] && x < dstsize - 1)
 	{
-		dst[i] = src[i];
-		i++;
+		dst[x] = src[x];
+		x++;
 	}
-	if (dstsize)
-		dst[i] = '\0';
-	while (src[i])
-		i++;
-	return (i);
+	dst[x] = '\0';
+	return (ft_strlen(src));
 }

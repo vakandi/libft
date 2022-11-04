@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:44:22 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:44:25 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:55:09 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:55:10 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned int	i;
-	unsigned char	*d;
+	size_t	cnt;
 
-	i = 0;
-	d = (unsigned char *)b;
-	while (i < len)
-		d[i++] = (unsigned char)c;
-	b = (void *)d;
+	cnt = 0;
+	while (cnt < len)
+	{
+		((unsigned char *)b)[cnt] = c;
+		cnt++;
+	}
 	return (b);
 }

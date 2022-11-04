@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:42:31 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:42:32 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:55:40 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:55:42 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (s == NULL)
+	size_t	x;
+
+	if (!s)
 		return ;
-	write(fd, s, ft_strlen(s));
+	x = 0;
+	while (s[x])
+	{
+		write(fd, &s[x], 1);
+		x++;
+	}
 }

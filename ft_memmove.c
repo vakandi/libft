@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:44:36 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:19:44 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:55:02 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:55:05 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*a;
-	unsigned char	*b;
+	size_t	x;
+	char	*dst1;
+	char	*src1;
 
-	i = 0;
-	a = (unsigned char *)dst;
-	b = (unsigned char *)src;
-	if (a > b)
+	src1 = (char *)src;
+	dst1 = (char *)dst;
+	x = 0;
+	if (!src1 && !dst1)
+		return (NULL);
+	if (dst1 > src1)
 	{
-		while (i < len)
+		while (len-- > 0)
 		{
-			a[len - 1] = b[len - 1];
-			len--;
+			dst1[len] = src1[len];
 		}
 	}
 	else
 	{
-		while (i < len)
+		while (x < len)
 		{
-			a[i] = b[i];
-			i++;
+			dst1[x] = src1[x];
+			x++;
 		}
 	}
 	return (dst);

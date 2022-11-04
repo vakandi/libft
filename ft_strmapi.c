@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:37:15 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:37:17 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:56:27 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:56:28 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*map;
-	unsigned int	i;
+	char	*p;
+	int		x;
 
-	i = 0;
-	map = ft_strdup(s);
-	if (!map || !s || !f)
+	if (!s)
 		return (NULL);
-	while (map[i])
+	p = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!p)
+		return (NULL);
+	x = 0;
+	while (s[x])
 	{
-		map[i] = f(i, map[i]);
-		i++;
+		p[x] = f(x, s[x]);
+		x++;
 	}
-	return (map);
+	return (p);
 }

@@ -5,64 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:48:51 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:16:02 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:54:41 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:54:45 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	taille_str(long long int n)
+static	int	ft_cntstr(long int nb)
 {
-	long long int	i;
+	int	x;
 
-	i = 1;
-	if (n < 0)
-		n = n * -1;
-	while (n >= 10)
+	x = 0;
+	if (nb < 0)
 	{
-		n = n / 10;
-		i++;
+		nb = nb * -1;
+		x++;
 	}
-	return (i);
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		x++;
+	}
+	return (x);
 }
 
-static char	*rempli_str(char *str, long long int n, int len)
+char	*ft_null(void)
 {
-	int		debut;
+	char	*p;
 
-	str[len] = '\0';
-	len = len - 1;
-	if (n < 0)
-	{
-		n = n * -1;
-		debut = 1;
-		str[0] = '-';
-	}
-	else
-		debut = 0;
-	while (len >= debut)
-	{
-		str[len] = n % 10 + '0';
-		n = n / 10;
-		len--;
-	}
-	return (str);
+	p = ft_calloc(2, 1);
+	p[0] = 48;
+	return (p);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				len;
-	long long int	lln;
+	int			x;
+	long int	nb;
+	long int	nm;
+	char		*p;
 
-	lln = n;
-	len = taille_str(lln);
-	if (lln < 0)
-		len = len + 1;
-	str = ft_strnew(len);
-	if (!str)
+	nb = n;
+	if (nb == 0)
+		return (p = ft_null());
+	x = ft_cntstr(nb);
+	p = ft_calloc((x + 1), sizeof(char));
+	if (!p)
 		return (NULL);
-	str = rempli_str(str, lln, len);
-	return (str);
+	if (nb < 0)
+	{
+		nb = nb * -1;
+		p[0] = '-';
+	}
+	while (nb > 0)
+	{
+		nm = nb % 10;
+		p[--x] = nm + 48;
+		nb = nb / 10;
+	}
+	return (p);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:39:41 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:16:48 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:55:55 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:55:55 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char	*copy;
+	char	*p;
+	int		x;
 
-	copy = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (copy == NULL)
+	x = 0;
+	p = ft_calloc(ft_strlen((char *)s1) + 1, sizeof(char));
+	if (!(p))
 		return (NULL);
-	else
-		copy = ft_strcpy(copy, s1);
-	return (copy);
+	while (s1[x])
+	{
+		p[x] = s1[x];
+		x++;
+	}
+	return (p);
 }

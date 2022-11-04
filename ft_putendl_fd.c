@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 01:43:15 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:43:16 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:55:21 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:59:56 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	char	new_line;
+	int	x;
 
-	new_line = '\n';
-	write(fd, s, ft_strlen(s));
-	write(fd, &new_line, 1);
+	x = 0;
+	if (!s)
+		return ;
+	while (s[x])
+	{
+		write(fd, &s[x], 1);
+		x++;
+	}
+	write(fd, "\n", 1);
 }

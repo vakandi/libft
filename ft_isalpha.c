@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 00:39:28 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:15:34 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:57:48 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:57:49 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isalpha(int b)
 {
-	if (ft_isupper(c) || ft_islower(c))
+	if ((b >= 'a' && b <= 'z') || (b >= 'A' && b <= 'Z'))
 		return (1);
 	return (0);
 }

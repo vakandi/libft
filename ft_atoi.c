@@ -5,38 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 00:39:13 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 01:52:25 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:53:46 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:53:47 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	long		i;
-	long		r;
-	long		s;
+	int	x;
+	int	a;
+	int	y;
 
-	i = 0;
-	r = 0;
-	s = 1;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '-')
+	y = 1;
+	a = 0;
+	x = 0;
+	while ((str[x] >= 9 && str[x] <= 13) || str[x] == 32)
+		x++;
+	if (str[x] == '-' || str[x] == '+')
 	{
-		s = -1;
-		i++;
+		if (str[x] == '-')
+			y = -1;
+		x++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
+	while (str[x] >= '0' && str[x] <= '9')
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			r = r * 10 + str[i] - '0';
-		else
-			break ;
-		i++;
+		a = a * 10 + (str[x] - 48);
+		x++;
 	}
-	return (s * r);
+	return (a * y);
 }

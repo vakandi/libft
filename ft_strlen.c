@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 02:21:09 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:21:11 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:56:22 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 22:01:02 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	unsigned int	size;
+	size_t	b;
 
-	size = 0;
-	if (!s)
-		return (0);
-	while (s[size])
-		size++;
-	return (size);
+	b = 0;
+	while (s[b] != '\0')
+	{
+		b++;
+	}
+	return (b);
 }

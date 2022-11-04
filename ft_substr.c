@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 00:43:37 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/12 02:17:04 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:56:42 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:56:43 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*sub;
-	unsigned int	i;
+	char	*p;
+	size_t	x;
+	size_t	u;
 
-	i = 0;
-	sub = (char *)ft_memalloc(len + 1);
-	if (!s || !sub)
+	if (!s)
 		return (NULL);
-	if (start >= ft_strlen(s))
-		return (sub);
-	while (i < len)
+	u = len;
+	x = 0;
+	if (len > ft_strlen(s))
+		u = ft_strlen(s);
+	p = ft_calloc((u + 1), 1);
+	if (!p)
+		return (0);
+	if (start <= ft_strlen(s))
 	{
-		sub[i] = s[start];
-		i++;
-		start++;
+		while (x < len && start <= ft_strlen(s))
+			p[x++] = s[start++];
 	}
-	sub[i] = '\0';
-	return (sub);
+	return (p);
 }

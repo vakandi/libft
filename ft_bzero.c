@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbousfir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 00:39:17 by wbousfir          #+#    #+#             */
-/*   Updated: 2022/10/08 00:39:18 by wbousfir         ###   ########.fr       */
+/*   Created: 2022/11/04 21:57:56 by wbousfir          #+#    #+#             */
+/*   Updated: 2022/11/04 21:57:57 by wbousfir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*d;
+	size_t	x;
 
-	d = (unsigned char *)s;
-	while (n > 0)
+	x = 0;
+	while (x < n)
 	{
-		*d++ = '\0';
-		n--;
+		((unsigned char *)s)[x] = '\0';
+		x++;
 	}
 }
